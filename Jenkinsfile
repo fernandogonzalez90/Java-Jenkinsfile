@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clonando repo'){
             steps{
-                git "git@github.com:fernandogonzalez90/Java-Jenkinsfile.git"
+                git "https://github.com/fernandogonzalez90/Java-Jenkinsfile.git"
             }
         }
         stage('Construyendo Java'){
