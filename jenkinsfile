@@ -1,20 +1,20 @@
 pipeline {
-    agent any
-
-    stages{
-        stage('Hola Mundo'){
+    agen any
+    stages {
+        stage('Clonando repo'){
             steps{
-                sh 'echo Hola Mundo!'
+                git "git@github.com:fernandogonzalez90/Java-Jenkinsfile.git"
             }
         }
-    }
-
-    post{
-        succes{
-            echo 'El pipeline fue exitoso'
+        stage('Construyendo Java'){
+            steps{
+                sh 'mvn clean install'
+            }
         }
-        failure{
-            echo 'El pipeline no funco'
+        stage('Ejecutando los test'){
+            steps{
+                sh 'mvn test'
+            }
         }
     }
 }
